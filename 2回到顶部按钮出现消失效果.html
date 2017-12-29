@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <title></title>
+    <style>
+        html{
+            height:2500px;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .cd-top{
+            border-radius: 50%;
+            position: fixed;
+            width: 50px;
+            line-height:50px;
+            text-align: center;
+            height: 50px;
+            right: 30px;
+            background: #848484;
+            opacity: 0.8;
+            box-shadow: 0 0 10px rgba(0,0,0,.05);
+            white-space: nowrap;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            z-index: 99;
+            transform: translateX(200%);
+        }
+        .cd-top.cd-is-visible{
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <a class="cd-top" href="#">
+        Top
+    </a>
+    <script>
+        var $top = document.querySelector('.cd-top');
+        window.addEventListener('scroll',function(){
+            if(window.scrollY > 100){
+                $top.className = 'cd-top cd-is-visible';
+            }else{
+                $top.className = 'cd-top';
+            }
+        });
+    </script>
+</body>
+</html>
