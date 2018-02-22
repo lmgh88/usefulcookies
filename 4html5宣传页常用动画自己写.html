@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <title>html5宣传页常用动画自己写</title>
+    <style>
+        .animated{
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode:both;
+            animation-fill-mode:both;/*在动画播放之前和之后，动画效果可见*/
+        }
+        /*渐显效果start*/
+        @-webkit-keyframes fade-in {
+            0%{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes fade-in {
+            0%{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        .fadeIn{
+            -webkit-animation-name:fadeIn;
+            animation-name:fadeIn;
+        }
+        .fadeIn1{
+            animation-delay: .3s;
+        }
+        .fadeIn2{
+            animation-delay: .6s;
+        }
+        /*渐显效果end*/
+        /*提示向上滑箭头动效start*/
+        @keyframes btnarrow {
+            0%{
+                margin-bottom:0;
+            }
+            25%{
+                margin-bottom:-4px;
+            }
+            75%{
+                margin-bottom:4px;
+            }
+            to{
+                margin-bottom:0;
+            }
+        }
+        .btn-arrow{
+            animation: btnarrow 1s linear infinite;
+        }
+        /*提示向上滑箭头动效end*/
+        /*左右动start*/
+        @keyframes plyleft {
+            0%{
+                left:0;
+            }
+            50%{
+                left:-8px;
+            }
+            to{
+                left:0;
+            }
+        }
+        .ply-left{
+            animation: plyleft 1s linear infinite;
+        }
+        /*左右动end*/
+        /*bounceIn start*/
+        @keyframes bounceIn {
+            0%,20%,40%,60%,80%,to {
+                -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+                animation-timing-function: cubic-bezier(.215,.61,.355,1)
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3,.3,.3);
+                transform: scale3d(.3,.3,.3)
+            }
+
+            20% {
+                -webkit-transform: scale3d(1.1,1.1,1.1);
+                transform: scale3d(1.1,1.1,1.1)
+            }
+
+            40% {
+                -webkit-transform: scale3d(.9,.9,.9);
+                transform: scale3d(.9,.9,.9)
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(1.03,1.03,1.03);
+                transform: scale3d(1.03,1.03,1.03)
+            }
+
+            80% {
+                -webkit-transform: scale3d(.97,.97,.97);
+                transform: scale3d(.97,.97,.97)
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1)
+            }
+        }
+        /*bounceIn end*/
+    </style>
+</head>
+<body>
+
+</body>
+</html>

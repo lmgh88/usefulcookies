@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <title>使用Javascript创建并下载文件（兼容性不太好）</title>
+    <style>
+        button{
+            width:200px;
+            height:50px;
+            line-height:50px;
+        }
+    </style>
+</head>
+<!-- 参考地址：https://gaohaoyang.github.io/2016/11/22/js-create-file-and-download/ -->
+<body>
+    <button id="btn">点我下载测试</button>
+    <script>
+        /*
+        * 创建并下载文件
+        * @param {string} fileName 文件名
+        * @param {string} content  文件内容
+        * */
+        function createAndDownloadFile(fileName, content){
+            var aTag = document.createElement('a');
+            var blob = new Blob([content]);
+            aTag.download = fileName;
+            aTag.href = URL.createObjectURL(blob);
+            aTag.click();
+            URL.revokeObjectURL(blob); //回收内存
+        }
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click',function(){
+            createAndDownloadFile('测试下载文件.txt','测试文件内容哦~');
+        },false);
+    </script>
+</body>
+</html>

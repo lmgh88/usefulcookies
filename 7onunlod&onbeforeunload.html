@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <title>onunload&onbeforeunload事件</title>
+    <!--总结：
+    1.在手机端，要监听页面关闭事件，使用onunload，而非onbeforeunload，测试在我的安卓上可以，苹果暂时未测，要发送请求的话使用同步请求，未测
+    2.关闭页面时提示“要重新加载此页面吗”，绑定onbeforeunload事件，且不是所有浏览器都好用，且不能自定义提示内容，该功能不好-->
+</head>
+<body>
+<div id="tt"></div>
+<script>
+    var sumKey = 'testsum',sumOri = 1;
+    var sum = localStorage.getItem(sumKey);
+    if(sum){
+        document.getElementById('tt').innerHTML = sum;
+    }
+    window.onunload = function () {
+        setTimeout(function(){
+            if(sum){
+                localStorage.setItem(sumKey,++sum);
+            }else{
+                localStorage.setItem(sumKey,sumOri);
+            }
+        },15000);
+    }
+
+    window.onbeforeunload = function(){
+//        return '1';
+    };
+</script>
+</body>
+</html>

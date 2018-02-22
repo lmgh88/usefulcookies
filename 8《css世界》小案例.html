@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <title>css世界小案例</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .test{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--以下模块文字内容是动态的，可能是几个字，也可能是一句话。希望文字少的时候居中，折行的时候居左-->
+    <style>
+        .test1 .box{
+            text-align: center;
+            width:200px;
+            background: #ccc;
+            margin-bottom:15px;
+        }
+        .test1 .box .content{
+            display: inline-block;
+            text-align: left;
+        }
+        .split{
+            width:50px;
+            display: inline-block;
+        }
+    </style>
+    <div class="test1 test">
+        <div class="box">
+            <div class="content">文字内容</div>
+        </div>
+        <div class="box">
+            <div class="content">文字内容文字内容文字内容文字内容文字内容文字内容文字内容</div>
+        </div>
+    </div>
+
+    <!--使用一层html标签实现"凹"和"凸"效果，需兼容ie8-->
+    <!--原理：利用首选最小宽度、连续英文单词不换行的特性-->
+    <style>
+        .test2 .cont{
+            display: inline-block;
+            width:0;
+        }
+        .test2 .cont:before{
+            outline:2px solid #000;
+            /*color:#fff;*/
+        }
+        .test2 .ao:before{
+            content :'love 你 love';
+        }
+        .test2 .tu:before{
+            content:'我 love 你';
+        }
+    </style>
+    <div class="test2 test">
+        <div class="cont ao"></div>
+        <div class="split"></div>
+        <div class="cont tu"></div>
+    </div>
+</body>
+</html>
